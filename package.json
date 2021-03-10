@@ -1,0 +1,37 @@
+{
+  "name": "electron-markdown-view",
+  "version": "1.0.0",
+  "description": "Offers an out-of-the-box window solution in electron to display static markdown files.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "tsc": "tsc",
+    "build": "tsc && node build-html.js src/markdown-view/index.html lib/markdown-view/index.html && npx babel lib/index.js --out-file lib/index.js && shx rm -r lib/markdown-view"
+  },
+  "author": {
+    "name": "Centigrade GmbH",
+    "url": "https://www.centigrade.de/en/"
+  },
+  "contributors": [
+    {
+      "name": "Marc Schubhan"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-transform-html-import-require-to-string": "^0.0.3",
+    "babel-preset-minify": "^0.5.1",
+    "shx": "^0.3.3",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "electron": "^12.0.0",
+    "showdown": "^1.9.1"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
