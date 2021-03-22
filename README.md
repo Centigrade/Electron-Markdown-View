@@ -7,7 +7,7 @@ Offers an out-of-the-box window solution in electron to display static markdown 
 ## Installation
 
 ```sh
-npm install electron-markdown-view
+npm install @centigrade/electron-markdown-view
 ```
 
 
