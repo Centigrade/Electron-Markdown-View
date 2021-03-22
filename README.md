@@ -63,4 +63,4 @@ The package tries to leave the intended window behavior untouched, i.e.:
 
 ## License
 
-[MIT]()
+[MIT](https://github.com/Centigrade/Electron-Markdown-View/blob/master/LICENSE.md)
