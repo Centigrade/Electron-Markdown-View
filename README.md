@@ -18,14 +18,14 @@ First, require the "electron-markdown-view" package and create an instance of
 MarkdownWindow, passing the .md file location to the constructor.
 
 ```javascript
-const mdView = require("electron-markdown-view");
+const mdView = require("@centigrade/electron-markdown-view");
 const mdWindow = new mdView.MarkdownWindow("path/to/markdown.md");
 ```
 
 Or in Typescript:
 
 ```javascript
-import { MarkdownWindow } from "electron-markdown-view";
+import { MarkdownWindow } from "@centigrade/electron-markdown-view";
 const mdWindow = new MarkdownWindow("path/to/markdown.md");
 ```
 
