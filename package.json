@@ -1,6 +1,6 @@
 {
   "name": "@centigrade/electron-markdown-view",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Offers an out-of-the-box window solution in electron to display static markdown files.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
