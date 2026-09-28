@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { BrowserWindow } from "electron";
 import * as path from "path";
 import * as fs from "fs";
 import * as showdown from "showdown";
@@ -6,7 +6,6 @@ import * as markdownHtml from "./markdown-view/index.html";
 
 export class MarkdownWindow {
   private window: BrowserWindow;
-  private preventWindowAllClosedEvent: boolean;
   private markdownFile: string;
   private windowName: string;
 
@@ -15,21 +14,11 @@ export class MarkdownWindow {
     this.windowName =
       windowName == undefined ? this.getFileName(file) : windowName;
     this.markdownFile = file;
-
-    this.preventWindowAllClosedEvent = false;
-    app.on("window-all-closed", (event) => {
-      if (this.preventWindowAllClosedEvent) event.preventDefault();
-    });
   }
 
   public show() {
     // Does window already exist
     if (this.window === null) {
-      //Check if other windows are open
-      if (this.getNumOpenWindows() === 0) {
-        this.preventWindowAllClosedEvent = true;
-      }
-
       // Create new BrowserWindow
       this.window = new BrowserWindow({
         title: this.windowName,
@@ -64,7 +53,7 @@ export class MarkdownWindow {
 
       // Load View HTML
       this.window.loadURL(
-        "data:text/html;charset=utf-8," + encodeURIComponent(markdownHtml)
+        "data:text/html;charset=utf-8," + encodeURIComponent(markdownHtml),
       );
     }
   }
@@ -77,13 +66,6 @@ export class MarkdownWindow {
 
   private cleanup() {
     this.window = null;
-    this.preventWindowAllClosedEvent = false;
-  }
-
-  private getNumOpenWindows() {
-    return BrowserWindow.getAllWindows().filter((window) => {
-      return window.isVisible();
-    }).length;
   }
 
   private getFileName(url: string): string {
